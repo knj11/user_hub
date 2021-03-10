@@ -3,12 +3,8 @@ const BASE_URL = "https://jsonplace-univclone.herokuapp.com";
 
 function fetchUsers() {
   return fetch(`${BASE_URL}/users`)
-    .then(function (response) {
-      return response.json();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .then( response => response.json())
+    .catch( error => console.log(error));
 }
 
 function renderUser(user) {
@@ -26,8 +22,7 @@ function renderUser(user) {
       <button class="load-posts">POSTS BY ${user.username}</button>
       <button class="load-albums">ALBUMS BY ${user.username}</button>
     </footer>
-  </div>`).data('user', user)
-  ;
+  </div>`).data("user", user);
 }
 
 function renderUserList(userList) {
@@ -43,14 +38,14 @@ function bootstrap() {
 
 bootstrap();
 
-$('#user-list').on('click', '.user-card .load-posts', function () {
-  console.log($(this).closest('.user-card').data('user'))
+$("#user-list").on("click", ".user-card .load-posts", function () {
+  console.log($(this).closest(".user-card").data("user"));
   // load posts for this user
   // render posts for this user
 });
 
-$('#user-list').on('click', '.user-card .load-albums', function () {
-  console.log($(this).closest('.user-card').data('user'))
+$("#user-list").on("click", ".user-card .load-albums", function () {
+  console.log($(this).closest(".user-card").data("user"));
   // load albums for this user
   // render albums for this user
 });
